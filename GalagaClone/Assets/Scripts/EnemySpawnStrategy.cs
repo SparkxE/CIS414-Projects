@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EnemySpawnStrategy : MonoBehaviour
 {
-    SpawnStrategy spawner;  // SpawnStrategy instance to get method for spawning enemy objects
-    [SerializeField] private int spawnRate = 1;
+    // ISpawner spawner;  // SpawnStrategy instance to get method for spawning enemy objects
+    [SerializeField] private int spawnRate = 100;
     [SerializeField] private int maxEnemyCount = 10;
+    [SerializeField] private GameObject enemyPrefab;
     private int currentEnemyCount = 0;
     private int randomSpawn;
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         randomSpawn = Random.Range(0, spawnRate + 1);
         if(maxEnemyCount > currentEnemyCount && randomSpawn == spawnRate){
@@ -21,14 +22,14 @@ public class EnemySpawnStrategy : MonoBehaviour
         }
         int randomX = Random.Range(0,2);
         if(randomX == 0){
-            transform.position = new Vector3(Random.Range(-10f, 0), 0, Random.Range(4, 7));
+            transform.position = new Vector3(Random.Range(-10f, 0), 0, Random.Range(0, 10f));
         }
         else{
-            transform.position = new Vector2(Random.Range(0, 10f), Random.Range(4, 7));
+            transform.position = new Vector3(Random.Range(0, 10f), 0, Random.Range(0, 10f));
         }
     }
 
     private void SpawnEnemy(){
-        spawner.Spawn(gameObject.transform);
+        Instantiate(enemyPrefab, gameObject.transform.position, gameObject.transform.rotation);
     }
 }

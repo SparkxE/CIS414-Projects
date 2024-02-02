@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
 
-            GameObject bullet =Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
           
             Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();

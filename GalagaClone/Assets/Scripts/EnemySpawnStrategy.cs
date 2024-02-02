@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemySpawnStrategy : MonoBehaviour
 {
-    // ISpawner spawner;  // SpawnStrategy instance to get method for spawning enemy objects
     [SerializeField] private int spawnRate = 100;
     [SerializeField] private int maxEnemyCount = 10;
     [SerializeField] private GameObject enemyPrefab;

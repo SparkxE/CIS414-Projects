@@ -22,10 +22,10 @@ public class EnemySpawnStrategy : MonoBehaviour
         }
         int randomX = Random.Range(0,2);
         if(randomX == 0){
-            transform.position = new Vector3(Random.Range(-10f, 0), 0, Random.Range(0, 10f));
+            transform.position = new Vector3(Random.Range(-10f, 0), 0, Random.Range(5f, 10f));
         }
         else{
-            transform.position = new Vector3(Random.Range(0, 10f), 0, Random.Range(0, 10f));
+            transform.position = new Vector3(Random.Range(0, 10f), 0, Random.Range(5f, 10f));
         }
     }
 

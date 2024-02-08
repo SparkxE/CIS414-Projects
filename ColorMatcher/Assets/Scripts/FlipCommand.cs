@@ -11,13 +11,19 @@ public class FlipCommand : IFlip
             return this.choice;
         }
     }
+    public GameObject Selection{
+        get{
+            return this.selection;
+        }
+    }
     public FlipCommand(char aChoice){
-        
+        this.choice = aChoice;
+        this.selection = GameObject.Find("Tile" + Choice);
     }
     public void Execute(){
-
+        Selection.transform.GetChild(0).gameObject.SetActive(false);
     }
     public void UnExecute(){
-
+        Selection.transform.GetChild(0).gameObject.SetActive(true);
     }
 }

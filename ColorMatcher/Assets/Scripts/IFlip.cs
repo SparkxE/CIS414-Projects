@@ -9,4 +9,7 @@ public interface IFlip
     char Choice{
         get; 
     }
+    GameObject Selection{
+        get;
+    }
 }

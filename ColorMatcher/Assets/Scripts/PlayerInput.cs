@@ -11,37 +11,59 @@ public class PlayerInput : MonoBehaviour
         Flip();
     }
 
-    private void Flip(){
-        if(Input.anyKeyDown){
+    private void Flip()
+    {
+        if (Input.anyKeyDown)   //check if a Keyboard key has been pressed
+        {
+            //assign pressed key to new FlipCommand object's Choice value
             char inputChoice = Input.inputString.ToCharArray()[0];
             FlipCommand aCommand = new FlipCommand(inputChoice);
-            if(aCommand.Selection == null){
+
+            if (aCommand.Selection == null) //check if a Tile object exists in scene before adding aCommand to Flips list
+            {
                 Debug.Log("Invalid selection");
             }
-            else{
+            else
+            {
+                //if Tile object found, add aCommand to Flips and execute Command
                 flips.Add(aCommand);
-                if(flips.Count == 2){
-                    foreach(FlipCommand flip in flips){
-                        flip.Execute();
+                aCommand.Execute();
+
+                //if Flips has 2 FlipCommands in it, check if the colors match (via material names)
+                if (flips.Count == 2)
+                {
+                    if (flips[0].Selection.GetComponent<Renderer>().material.name == flips[1].Selection.GetComponent<Renderer>().material.name)
+                    {
+                        //if material names match, destroy the chosen Tiles & clear Flips list
+                        Debug.Log("Tiles Match");
+                        Invoke("DestroyTiles", 1f);     //Invoke() function allows for slight delay in operation so the user can see what's happening
                     }
-                    if(flips[0].Selection.GetComponent<Renderer>().material == flips[1].Selection.GetComponent<Renderer>().material){
-                        Invoke("DestroyTiles", 1f);
-                        flips.Clear();    //<-- Not sure if doing this here will interrupt the DestroyTiles function
-                    }
-                    else{
-                        foreach(FlipCommand flip in flips){
-                            flip.UnExecute();
-                        }
+                    else
+                    {
+                        //if material names don't match, UnExecute on each Tile & clear Flips list
+                        Debug.Log("Tiles don't match");
+                        Invoke("UnFlip", 1f);   //Invoke() function allows for slight delay in operation so the user can see what's happening
                     }
                 }
             }
         }
     }
 
-    private void DestroyTiles(){
-        foreach(FlipCommand flip in flips){
-            Destroy(flip.Selection);
+    private void DestroyTiles()
+    {
+        foreach (FlipCommand flip in flips)
+        {
+            Destroy(flip.Selection);    //destroy the selected Tiles
         }
-        //flips.Clear();
+        flips.Clear();
+    }
+
+    private void UnFlip()
+    {
+        foreach (FlipCommand flip in flips)
+        {
+            flip.UnExecute();  //Execute "flips" tiles (disables child TileShadow object), UnExecute re-enables TileShadow on each selected Tile
+        }
+        flips.Clear();
     }
 }

@@ -16,14 +16,14 @@ public class FlipCommand : IFlip
             return this.selection;
         }
     }
-    public FlipCommand(char aChoice){
+    public FlipCommand(char aChoice){   //Constructor
         this.choice = aChoice;
-        this.selection = GameObject.Find("Tile" + Choice);
+        this.selection = GameObject.Find("Tile" + Choice);  //find Tile with name matching Choice rather than passing the object in
     }
     public void Execute(){
-        Selection.transform.GetChild(0).gameObject.SetActive(false);
+        Selection.transform.GetChild(0).gameObject.SetActive(false);    //Set the first child Object found (should be TileShadow for all tiles) to InActive, revealing Selection's color
     }
     public void UnExecute(){
-        Selection.transform.GetChild(0).gameObject.SetActive(true);
+        Selection.transform.GetChild(0).gameObject.SetActive(true);     //Set the first child Object found (should be TileShadow for all tiles) to Active, hiding Selection's color
     }
 }

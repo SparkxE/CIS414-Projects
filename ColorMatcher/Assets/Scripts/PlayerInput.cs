@@ -32,7 +32,12 @@ public class PlayerInput : MonoBehaviour
                 //if Flips has 2 FlipCommands in it, check if the colors match (via material names)
                 if (flips.Count == 2)
                 {
-                    if (flips[0].Selection.GetComponent<Renderer>().material.name == flips[1].Selection.GetComponent<Renderer>().material.name)
+                    if (flips[0].Selection == flips[1].Selection) {
+                        Debug.Log("Same Tile"); 
+                        Invoke("UnFlip", 1f); 
+                    }
+
+                    else if (flips[0].Selection.GetComponent<Renderer>().material.name == flips[1].Selection.GetComponent<Renderer>().material.name )
                     {
                         //if material names match, destroy the chosen Tiles & clear Flips list
                         Debug.Log("Tiles Match");

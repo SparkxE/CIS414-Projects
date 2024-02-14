@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : Singleton<PlayerInput>
 {
     private List<IFlip> flips = new List<IFlip>();
     // Update is called once per frame
@@ -70,5 +71,14 @@ public class PlayerInput : MonoBehaviour
             flip.UnExecute();  //Execute "flips" tiles (disables child TileShadow object), UnExecute re-enables TileShadow on each selected Tile
         }
         flips.Clear();
+    }
+
+
+    private void OnGUI()
+    {
+        if(GUILayout.Button("Next Scene"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

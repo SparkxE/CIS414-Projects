@@ -62,8 +62,8 @@ public class PlayerInput : Singleton<PlayerInput>
     {
         foreach (FlipCommand flip in flips)
         {
-            Destroy(flip.Selection);    //destroy the selected Tiles
-            flip.Selection.GetComponent<TileCube>().ReturnToPool();
+            // Destroy(flip.Selection);    //destroy the selected Tiles <- OUTDATED, CURRENT CODE USES OBJECT POOLING
+            flip.Selection.GetComponent<TileCube>().ReturnToPool(); //return selected tiles to Object Pool
         }
         flips.Clear();
     }

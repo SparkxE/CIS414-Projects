@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInput : Singleton<PlayerInput>
 {
+    private int totalScore = 0;
     private List<IFlip> flips = new List<IFlip>();
     // Update is called once per frame
     void Update()
@@ -33,15 +34,17 @@ public class PlayerInput : Singleton<PlayerInput>
                 //if Flips has 2 FlipCommands in it, check if the colors match (via material names)
                 if (flips.Count == 2)
                 {
-                    if (flips[0].Selection == flips[1].Selection) {
-                        Debug.Log("Same Tile"); 
-                        Invoke("UnFlip", 1f); 
+                    if (flips[0].Selection == flips[1].Selection)
+                    {
+                        Debug.Log("Same Tile");
+                        Invoke("UnFlip", 1f);
                     }
 
-                    else if (flips[0].Selection.GetComponent<Renderer>().material.name == flips[1].Selection.GetComponent<Renderer>().material.name )
+                    else if (flips[0].Selection.GetComponent<Renderer>().material.name == flips[1].Selection.GetComponent<Renderer>().material.name)
                     {
                         //if material names match, destroy the chosen Tiles & clear Flips list
                         Debug.Log("Tiles Match");
+                        totalScore++;
                         Invoke("DestroyTiles", 1f);     //Invoke() function allows for slight delay in operation so the user can see what's happening
                     }
                     else
@@ -60,6 +63,7 @@ public class PlayerInput : Singleton<PlayerInput>
         foreach (FlipCommand flip in flips)
         {
             Destroy(flip.Selection);    //destroy the selected Tiles
+            flip.Selection.GetComponent<TileCube>().ReturnToPool();
         }
         flips.Clear();
     }
@@ -76,9 +80,11 @@ public class PlayerInput : Singleton<PlayerInput>
 
     private void OnGUI()
     {
-        if(GUILayout.Button("Next Scene"))
+        if (GUILayout.Button("Next Scene"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        GUI.color = Color.white;
+        GUI.Label(new Rect(1, 25, 200, 40), "Current Score: " + totalScore);
     }
 }

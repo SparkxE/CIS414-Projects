@@ -20,12 +20,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
 
-            GameObject bullet =Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
           
-            Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 
-            bulletRb.velocity = transform.up * moveSpeed;
+            bulletRb.velocity = transform.forward * moveSpeed;
 
             Destroy(bullet, duration);
         }

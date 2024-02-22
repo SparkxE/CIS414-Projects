@@ -7,21 +7,10 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class Enemy : SpawnStrategy
+    public class Enemy : MonoBehaviour
     {
-        public GameObject enemyPrefab;
-        public Enemy() { }
-        public void Spawn(Transform origin)
-        {
-            
-            Instantiate(enemyPrefab, origin.position, origin.rotation);
-        }
-
-     
-     
-        private void Instantiate(GameObject enemyPrefab, Vector3 position, Quaternion rotation)
-        {
-           
+        private void OnTriggerEnter(Collider other) {
+            Destroy(gameObject);
         }
     }
 }

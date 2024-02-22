@@ -19,7 +19,5 @@ namespace Assets.Scripts
         {
             bulletObject.transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
         }
-
-
     }
 }

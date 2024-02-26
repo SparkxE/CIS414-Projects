@@ -10,4 +10,10 @@ public class EnemyCube : MonoBehaviour
     public void ReturnToPool(){
         Pool.Release(this);
     }
+
+    private void OnTriggerEnter(Collider other){
+        if(other.tag == "Player"){
+            ReturnToPool();
+        }
+    }
 }

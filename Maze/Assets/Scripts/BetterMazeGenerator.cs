@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BetterMazeGenerator : MonoBehaviour
 {
-     // private int[,] map;
+    // private int[,] map;
     public int[,] verticalMap;
     public int[,] horizontalMap;
     [SerializeField] private int rows;
@@ -28,7 +28,7 @@ public class BetterMazeGenerator : MonoBehaviour
     }
 
     private void InitializeMaze()
-    { 
+    {
         int row = 0;
         int column = 0;
 
@@ -60,8 +60,8 @@ public class BetterMazeGenerator : MonoBehaviour
     void CarvePath()
     {
         //pathMaker.CarvePath(map, this.rows, this.columns);
-        int row = 1;
-        int column = 1;
+        int row = 0;
+        int column = 0;
         int randomNumber = 0;
 
         while (row < this.rows)
@@ -71,27 +71,41 @@ public class BetterMazeGenerator : MonoBehaviour
                 // flip a coin
                 randomNumber = Random.Range(0, 100);
 
-                if(column == columns-1){
-                    horizontalMap[row, column] = 0;
-                }
-                if(row == rows-1){
-                    verticalMap[row, column] = 0;
-                }
-                
                 if (randomNumber < 50 && row < this.rows)
                 {
                     // horizontalMap[row, column] = 0;
-                    if(row < rows){
+                    if (row < rows)
+                    {
                         horizontalMap[row, column] = 0;
                     }
                 }
                 else if (randomNumber > 50 && column < this.columns)
                 {
                     // verticalMap[row, column] = 0;
-                    if(column < columns){
+                    if (column < columns)
+                    {
                         verticalMap[row, column] = 0;
                     }
                 }
+
+                if (row == rows - 1)
+                {
+                    horizontalMap[row, column] = 1;
+                    verticalMap[row, column] = 0;
+                }
+
+                if (column == columns - 1)
+                {
+                    verticalMap[row, column] = 1;
+                    horizontalMap[row, column] = 0;
+                }
+
+                if (column == columns - 1 && row == rows - 1)
+                {
+                    verticalMap[row, column] = 0;
+                    horizontalMap[row, column] = 0;
+                }
+
                 column++;
             }
             column = 0;
@@ -105,13 +119,14 @@ public class BetterMazeGenerator : MonoBehaviour
 
         int row = 0;
         int column = 0;
-        
+
         while (row < this.rows)
         {
             while (column < this.columns)
             {
                 // instantiate a new prefab at
-                if (horizontalMap[row, column] == 1) { 
+                if (horizontalMap[row, column] == 1)
+                {
                     Instantiate(horizontalPrefab, new Vector3(column * 5 + 2.45f, 0, row * 5), Quaternion.identity);
                 }
                 column++;
@@ -119,7 +134,7 @@ public class BetterMazeGenerator : MonoBehaviour
             column = 0;
             row++;
         }
-        
+
         row = 0;
         column = 0;
 

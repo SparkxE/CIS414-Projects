@@ -9,6 +9,9 @@ public class UserController : Subject
     private HUDController hudController;
     private CameraController cameraController;
     private bool isHit = false;
+    private float playerSpeed = 5.0f;
+    private float shootingSpeed = 1.0f;
+    public GameObject projectilePrefab;
 
     public float UserHealth
     {
@@ -25,6 +28,12 @@ public class UserController : Subject
         get { return isHit; }
         set { isHit = value; }
     }
+
+    public float PlayerSpeed
+    {
+        get { return playerSpeed; }
+    }
+
 
     private void Awake()
     {
@@ -81,4 +90,67 @@ public class UserController : Subject
             Destroy(gameObject);
         }
     }
+
+
+
+
+
+    public void AcceptVisitor(PlayerVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
+
+    
+    public void ApplySpeedBoost(float boostAmount)
+    {
+        playerSpeed += boostAmount;
+    }
+
+
+
+
+    public void Shoot()
+    {
+        
+        if (CanShoot())
+        {
+        
+            GameObject projectilePrefab = Resources.Load<GameObject>("ProjectilePrefab"); 
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+
+           
+            ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
+            if (projectileController != null)
+            {
+                projectileController.SetSpeed(shootingSpeed);
+            }
+
+            Debug.Log("Player is shooting at speed: " + shootingSpeed);
+        }
+        else
+        {
+            Debug.Log("Cannot shoot right now. Cooldown active or other condition not met.");
+        }
+    }
+
+   
+    private bool CanShoot()
+    {
+       
+        return true;
+    }
+
+
+    public void AcceptShootingVisitor(ShootingVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
+
+
+    public void ApplyShootingSpeedBoost(float boostAmount)
+    {
+     
+        shootingSpeed += boostAmount;
+    }
+
 }

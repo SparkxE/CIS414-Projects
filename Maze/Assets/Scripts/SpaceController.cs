@@ -19,7 +19,33 @@ public class SpaceController : MonoBehaviour
                 userController.TakeDamage(11);
             }
         }
+        if (GUILayout.Button("Apply Speed Boost"))
+        {
+            if (userController)
+            {
+               
+                SpeedBoostVisitor speedBoostVisitor = new SpeedBoostVisitor(2.0f); 
+                userController.AcceptVisitor(speedBoostVisitor);
+            }
+        }
 
-        
+        if (GUILayout.Button("Shoot"))
+        {
+            if (userController)
+            {
+                userController.Shoot();
+            }
+        }
+
+        if (GUILayout.Button("Apply Shooting Speed Boost"))
+        {
+            if (userController)
+            {
+                ShootingSpeedBoostVisitor shootingSpeedBoostVisitor = new ShootingSpeedBoostVisitor(2.0f); 
+                userController.AcceptShootingVisitor(shootingSpeedBoostVisitor);
+            }
+        }
+
+
     }
 }

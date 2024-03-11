@@ -10,7 +10,7 @@ public class HUDController : Observer
 
     private void OnGUI()
     {
-        GUILayout.BeginArea(new Rect(50, 50, 100, 200));
+        GUILayout.BeginArea(new Rect(50, 200, 100, 200));
 
         GUILayout.BeginHorizontal("Box");
         GUILayout.Label("User Health: " + userHealth);

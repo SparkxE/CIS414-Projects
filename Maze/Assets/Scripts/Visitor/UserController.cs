@@ -10,8 +10,11 @@ public class UserController : Subject
     private CameraController cameraController;
     private bool isHit = false;
     private float playerSpeed = 5.0f;
-    private float shootingSpeed = 1.0f;
-    public GameObject projectilePrefab;
+    public float shootingSpeed = 5.0f;
+    public float duration = 6.0f;
+    public Transform bulletSpawnPoint;
+    public GameObject bulletPrefab;
+
 
     public float UserHealth
     {
@@ -109,36 +112,30 @@ public class UserController : Subject
 
 
 
-    public void Shoot()
+  public void Shoot()
     {
-        
-        if (CanShoot())
-        {
-        
-            GameObject projectilePrefab = Resources.Load<GameObject>("ProjectilePrefab"); 
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+       // float vInput = Input.GetAxisRaw("Vertical");
 
-           
-            ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
-            if (projectileController != null)
-            {
-                projectileController.SetSpeed(shootingSpeed);
-            }
 
-            Debug.Log("Player is shooting at speed: " + shootingSpeed);
-        }
-        else
+       // transform.Translate(Vector2.right * vInput * shootingSpeed * Time.deltaTime);
+
+        if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("Cannot shoot right now. Cooldown active or other condition not met.");
+
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+
+
+            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+
+            bulletRb.velocity = bulletSpawnPoint.forward * shootingSpeed;
+
+            Destroy(bullet, duration);
         }
     }
+
 
    
-    private bool CanShoot()
-    {
-       
-        return true;
-    }
+  
 
 
     public void AcceptShootingVisitor(ShootingVisitor visitor)

@@ -9,6 +9,10 @@ public class SpaceController : MonoBehaviour
     {
         userController = FindObjectOfType<UserController>();
     }
+    private void Update()
+    {
+        userController.Shoot();
+    }
 
     void OnGUI()
     {
@@ -29,13 +33,7 @@ public class SpaceController : MonoBehaviour
             }
         }
 
-        if (GUILayout.Button("Shoot"))
-        {
-            if (userController)
-            {
-                userController.Shoot();
-            }
-        }
+     
 
         if (GUILayout.Button("Apply Shooting Speed Boost"))
         {

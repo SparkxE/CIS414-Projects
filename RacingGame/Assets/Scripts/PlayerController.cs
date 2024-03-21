@@ -2,8 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Subject
 {
+    private CameraController cameraController;
+    public bool IsWarpOn
+    {
+        get; private set;
+    }
+
+    private void Awake()
+    {    // we may have to change it later 
+        
+        cameraController = FindObjectOfType<CameraController>();
+
+        // gameObject.AddComponent<CameraController>;//we might have to find the camera and then find it 
+    }
+
+    private void OnEnable()
+    {
+      
+        if (cameraController)
+        {
+
+            Attach(cameraController);
+        }
+
+
+    }
+    private void OnDisable()
+    {
+       
+
+        if (cameraController)
+        {
+
+            Detach(cameraController);
+        }
+
+
+    }
+
     [SerializeField] private Transform playerTransform;
     private List<IMove> moves = new List<IMove>();
 

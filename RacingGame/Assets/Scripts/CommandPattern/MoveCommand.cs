@@ -21,22 +21,25 @@ public class MoveCommand : IMove //implements the Interface
         if (this.Direction == "W")
         {
             // AGameObject.transform.position = AGameObject.transform.position + AGameObject.transform.forward;
-            AGameObject.GetComponent<Rigidbody>().velocity = Vector3.forward.normalized * 7;
+            AGameObject.GetComponent<Rigidbody>().velocity = AGameObject.transform.forward.normalized * 7;
         }
         if (this.Direction == "A")
         {
             // AGameObject.transform.position = AGameObject.transform.position - AGameObject.transform.right;
-            AGameObject.GetComponent<Rigidbody>().velocity = Vector3.left.normalized * 7;
+            // AGameObject.GetComponent<Rigidbody>().velocity = Vector3.left.normalized * 7;
+            AGameObject.transform.Rotate(0, AGameObject.transform.rotation.y - 1, 0);
         }
         if (this.Direction == "S")
         {
             // AGameObject.transform.position = AGameObject.transform.position - AGameObject.transform.forward;
-            AGameObject.GetComponent<Rigidbody>().velocity = Vector3.back.normalized * 7;
+            AGameObject.GetComponent<Rigidbody>().velocity = AGameObject.transform.forward.normalized * -7;
         }
         if (this.Direction == "D")
         {
             // AGameObject.transform.position = AGameObject.transform.position + AGameObject.transform.right;
-            AGameObject.GetComponent<Rigidbody>().velocity = Vector3.right.normalized * 7;
+            // AGameObject.GetComponent<Rigidbody>().velocity = Vector3.right.normalized * 7;
+            AGameObject.transform.Rotate(0, AGameObject.transform.rotation.y + 1, 0);
+
         }
     }
 

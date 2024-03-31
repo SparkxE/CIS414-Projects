@@ -112,30 +112,32 @@ public class UserController : Subject
 
 
 
-  public void Shoot()
+    public void Shoot()
     {
-       // float vInput = Input.GetAxisRaw("Vertical");
-
-
-       // transform.Translate(Vector2.right * vInput * shootingSpeed * Time.deltaTime);
-
         if (Input.GetButtonDown("Fire1"))
         {
+            if (bulletPrefab != null && bulletSpawnPoint != null)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
 
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+                Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 
+                // Use transform.forward to get the forward direction of the player
+                bulletRb.velocity = transform.forward * shootingSpeed;
 
-            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-
-            bulletRb.velocity = bulletSpawnPoint.forward * shootingSpeed;
-
-            Destroy(bullet, duration);
+                Destroy(bullet, duration);
+            }
+            else
+            {
+                Debug.LogError("Bullet prefab or bullet spawn point is not assigned.");
+            }
         }
     }
 
 
-   
-  
+
+
+
 
 
     public void AcceptShootingVisitor(ShootingVisitor visitor)

@@ -6,6 +6,8 @@ public class MoveCommand : IMove //implements the Interface
 {
     private string direction = "W";
     private GameObject aGameObject;
+    private float accelSpeed;
+    private float turnSpeed;
 
     public string Direction { get { return this.direction; } }
 
@@ -20,26 +22,19 @@ public class MoveCommand : IMove //implements the Interface
     {  //main important thing!!
         if (this.Direction == "W")
         {
-            // AGameObject.transform.position = AGameObject.transform.position + AGameObject.transform.forward;
-            AGameObject.GetComponent<Rigidbody>().velocity = AGameObject.transform.forward.normalized * 7;
+            AGameObject.GetComponent<Rigidbody>().velocity = AGameObject.transform.forward * 3;
         }
         if (this.Direction == "A")
         {
-            // AGameObject.transform.position = AGameObject.transform.position - AGameObject.transform.right;
-            // AGameObject.GetComponent<Rigidbody>().velocity = Vector3.left.normalized * 7;
-            AGameObject.transform.Rotate(0, AGameObject.transform.rotation.y - 1, 0);
+            AGameObject.transform.RotateAround(AGameObject.transform.position, Vector3.up, -1f);
         }
         if (this.Direction == "S")
         {
-            // AGameObject.transform.position = AGameObject.transform.position - AGameObject.transform.forward;
-            AGameObject.GetComponent<Rigidbody>().velocity = AGameObject.transform.forward.normalized * -7;
+            AGameObject.GetComponent<Rigidbody>().velocity = AGameObject.transform.forward * -3;
         }
         if (this.Direction == "D")
         {
-            // AGameObject.transform.position = AGameObject.transform.position + AGameObject.transform.right;
-            // AGameObject.GetComponent<Rigidbody>().velocity = Vector3.right.normalized * 7;
-            AGameObject.transform.Rotate(0, AGameObject.transform.rotation.y + 1, 0);
-
+            AGameObject.transform.RotateAround(AGameObject.transform.position, Vector3.up, 1f);
         }
     }
 

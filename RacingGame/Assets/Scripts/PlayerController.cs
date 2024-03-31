@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : Subject
 {
     private CameraController cameraController;
+    [SerializeField] private float turnRadius;
+    [SerializeField] private float driveAccel;
     public bool IsWarpOn
     {
         get; private set;
@@ -46,7 +48,7 @@ public class PlayerController : Subject
     private List<IMove> moves = new List<IMove>();
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
         // if(Input.GetKey(KeyCode.W)){

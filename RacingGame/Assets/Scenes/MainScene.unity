@@ -1422,8 +1422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnRadius: 2
-  driveAccel: 20
-  reverseAccel: 15
+  driveAccel: 15
+  reverseAccel: 10
   playerTransform: {fileID: 4972856501283185769}
 --- !u!1 &6185880255634798996
 GameObject:

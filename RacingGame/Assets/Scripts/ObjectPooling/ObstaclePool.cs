@@ -31,7 +31,7 @@ public class ObstaclePool : MonoBehaviour
 
     private Obstacle CreatePooledItem()
     {
-        GameObject go = GameObject.Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)]);
+        GameObject go = GameObject.Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length-1)]);
         Obstacle obstacle = go.AddComponent<Obstacle>();
         obstacle.Pool = Pool;
 

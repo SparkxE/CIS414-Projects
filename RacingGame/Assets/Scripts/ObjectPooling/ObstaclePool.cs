@@ -52,4 +52,11 @@ public class ObstaclePool : MonoBehaviour
     {
         Destroy(obstacle.gameObject);
     }
+
+    public void SpawnObstacles(){
+        for(int i = 0; i < stackDefaultCapacity; i++){
+            var obstacle = Pool.Get();
+            obstacle.transform.position = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        }
+    }
 }

@@ -328,6 +328,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1224218994845577995, guid: 97de147e2a4f8544c923cdb544c8d092, type: 3}
   m_PrefabInstance: {fileID: 6903301879846128993}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968046014}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!1 &1510388188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1510388189}
+  - component: {fileID: 1510388190}
+  m_Layer: 0
+  m_Name: LevelReloader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1510388189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510388188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.32446, y: 20.401443, z: 12.387738}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1510388190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510388188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729d1f98b5a58824aa830bf0bcc22fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1826714547
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +403,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1826714548}
   - component: {fileID: 1826714549}
+  - component: {fileID: 1826714550}
+  - component: {fileID: 1826714551}
   - component: {fileID: 1826714551}
   - component: {fileID: 1826714550}
   - component: {fileID: 1826714553}
@@ -375,10 +442,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13f89a19622870479a2d2d06dbc0760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 25
-  columns: 25
+  rows: 12
+  columns: 12
   verticalPrefab: {fileID: 8003582607739918899, guid: 3eb195491ff243c4a8087946a2d59638, type: 3}
   horizontalPrefab: {fileID: 8003582607739918899, guid: c28b5bc66f87c7e47a486136e5984e41, type: 3}
+--- !u!114 &1826714550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826714547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8969a68d333ec5740b1c559b98dba0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPoolSize: 6
+  stackDefaultCapacity: 6
+  enemyPrefab: {fileID: 8003582607739918899, guid: 8be4af0776a8e6f45859efb76b91503a, type: 3}
+--- !u!114 &1826714551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826714547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb9d5840e93de74d90037c7c837b679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1826714550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,4 +592,6 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 904295411}
   - {fileID: 1826714548}
+  - {fileID: 968046019}
+  - {fileID: 1510388189}
   - {fileID: 6903301879846128993}

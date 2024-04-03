@@ -1,3 +1,4 @@
+using PolyStang;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,20 @@ public class PlayerController : Subject
         get; private set;
     }
 
+    public float carHealth;
+
+    public float CarHealth
+    {
+        get { return carHealth; }
+        set { this.carHealth = value; }
+    }
+    public CarController carController; 
+
     private void Awake()
-    {    // we may have to change it later 
+    {   
         
         cameraController = FindObjectOfType<CameraController>();
-
+        //  cameraController = FindObjectOfType<CameraController>();
         // gameObject.AddComponent<CameraController>;//we might have to find the camera and then find it 
     }
 
@@ -40,6 +50,18 @@ public class PlayerController : Subject
         }
 
 
+    }
+
+    public void TakeDamage(float amoutOfDamage)
+    {
+       carHealth = carHealth - amoutOfDamage;
+        IsWarpOn = false;
+        NotifyObservers();
+
+        if (carHealth < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     [SerializeField] private Transform playerTransform;

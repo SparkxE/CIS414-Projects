@@ -10,10 +10,10 @@ public class HUDController : Observer
 
     private void OnGUI()
     {
-        GUILayout.BeginArea(new Rect(50, 50, 100, 200));
+        GUILayout.BeginArea(new Rect(25, 50, 200, 20)); 
 
         GUILayout.BeginHorizontal("Box");
-        GUILayout.Label("Car Health: " + carHealth);
+        GUILayout.Label("Car Health: " + observerCarController.CarHealth);
         GUILayout.EndHorizontal();
 
 
@@ -26,18 +26,7 @@ public class HUDController : Observer
             GUILayout.EndHorizontal();
         }
 
-        if (carHealth < 20)
-        {
-            GUILayout.BeginHorizontal("Box");
-            GUILayout.Label("Engine failing ");
-            GUILayout.EndHorizontal();
-        }
-        if (carHealth < 10)
-        {
-            GUILayout.BeginHorizontal("Box");
-            GUILayout.Label("EJECT EJECT EJECT ");
-            GUILayout.EndHorizontal();
-        }
+     
 
         GUILayout.EndArea();
     }

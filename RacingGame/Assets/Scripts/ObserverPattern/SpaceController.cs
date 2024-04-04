@@ -12,8 +12,8 @@ public class SpaceController : MonoBehaviour
 
     void OnGUI()
     {
-       
 
+        GUILayout.BeginArea(new Rect(25, 25, 200, 20));
         if (GUILayout.Button("ToggleWarp Engines"))
         {
             if (observerCarController)
@@ -21,5 +21,8 @@ public class SpaceController : MonoBehaviour
                 observerCarController.ToggleWarpSpeed();
             }
         }
+
+
+        GUILayout.EndArea();
     }
 }

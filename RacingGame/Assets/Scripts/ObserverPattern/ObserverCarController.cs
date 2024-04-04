@@ -32,7 +32,21 @@ public class ObserverCarController : Subject
     {
         StartEngine();
     }
+    private void StartEngine()
+    {
+        isEngineOn = true;
+        NotifyObservers();
+    }
 
+    public void ToggleWarpSpeed()
+    {
+        if (isEngineOn)
+        {
+
+            IsWarpOn = !IsWarpOn;
+        }
+        NotifyObservers();
+    }
 
     private void OnEnable()
     {
@@ -69,22 +83,6 @@ public class ObserverCarController : Subject
 
     }
 
-
-    private void StartEngine()
-    {
-        isEngineOn = true;
-        NotifyObservers();
-    }
-
-    public void ToggleWarpSpeed()
-    {
-        if (isEngineOn)
-        {
-
-            IsWarpOn = !IsWarpOn;
-        }
-        NotifyObservers();
-    }
 
     public void TakeDamage(float amoutOfDamage)
     {

@@ -42,7 +42,7 @@ public class MoveCommand : IMove //implements the Interface
         if (this.Direction == "S")
         {
             movingForward = false;
-            AGameObject.GetComponent<Rigidbody>().AddForce(AGameObject.transform.forward * -inputSpeed);
+            AGameObject.GetComponent<Rigidbody>().AddForce(-AGameObject.transform.forward * inputSpeed);
         }
         if (this.Direction == "D")
         {

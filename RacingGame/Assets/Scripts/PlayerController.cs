@@ -8,6 +8,8 @@ public class PlayerController : Subject
     [SerializeField] private float turnRadius;
     [SerializeField] private float driveAccel;
     [SerializeField] private float reverseAccel;
+
+    [SerializeField] private Factory crashSound;
     public bool IsWarpOn
     {
         get; private set;
@@ -52,6 +54,12 @@ public class PlayerController : Subject
     void FixedUpdate()
     {
         Move();
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(!other.gameObject.name.Contains("TARMAC")){
+            crashSound.GetEffect(transform.position);
+        }
     }
 
     private void Move()

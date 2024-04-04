@@ -8,7 +8,7 @@ public class CameraController : Observer
     private bool isWarpOn = false;
     private Vector3 initialPosition;
     private float shakeMagnitude = 0.1f;
-    private PlayerController playerController;
+    private ObserverCarController observerCarController;
 
 
     private void OnEnable()
@@ -33,15 +33,15 @@ public class CameraController : Observer
 
     public override void Notify(Subject aSubject)
     {
-        if (!playerController)
+        if (!observerCarController)
         {
-            playerController = playerController.GetComponent<PlayerController>();
+            observerCarController = observerCarController.GetComponent<ObserverCarController>();
         }
 
 
-        if (playerController)
+        if (observerCarController)
         {
-            isWarpOn = playerController.IsWarpOn;
+            isWarpOn = observerCarController.IsWarpOn;
         }
 
     }

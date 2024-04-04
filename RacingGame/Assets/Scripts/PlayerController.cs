@@ -1,9 +1,12 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Subject
 {
+
+    // private ObserverCarController observerCarController;
     private CameraController cameraController;
     [SerializeField] private float turnRadius;
     [SerializeField] private float driveAccel;
@@ -56,12 +59,6 @@ public class PlayerController : Subject
         Move();
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if(!other.gameObject.name.Contains("TARMAC")){
-            crashSound.GetEffect(transform.position);
-        }
-    }
-
     private void Move()
     {
         if (Input.GetKey(KeyCode.W))    //Forward input
@@ -109,6 +106,24 @@ public class PlayerController : Subject
                 moves[i].UnExecute();
             }
             moves.Clear();
+        }
+
+
+       
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(!collision.gameObject.name.Contains("TARMAC")){
+            crashSound.GetEffect(transform.position);
+        }
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            gameObject.GetComponent<ObserverCarController>().TakeDamage(11);
+            // if (gameObject.GetComponent<ObserverCarController>())
+            // {
+                
+            // }
         }
     }
 }

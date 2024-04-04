@@ -6,11 +6,13 @@ using UnityEngine;
 public class PlayerController : Subject
 {
 
-    private ObserverCarController observerCarController;
+    // private ObserverCarController observerCarController;
     private CameraController cameraController;
     [SerializeField] private float turnRadius;
     [SerializeField] private float driveAccel;
     [SerializeField] private float reverseAccel;
+
+    [SerializeField] private Factory crashSound;
     public bool IsWarpOn
     {
         get; private set;
@@ -112,13 +114,16 @@ public class PlayerController : Subject
 
     public void OnCollisionEnter(Collision collision)
     {
-
+        if(!collision.gameObject.name.Contains("TARMAC")){
+            crashSound.GetEffect(transform.position);
+        }
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            if (observerCarController)
-            {
-                observerCarController.TakeDamage(11);
-            }
+            gameObject.GetComponent<ObserverCarController>().TakeDamage(11);
+            // if (gameObject.GetComponent<ObserverCarController>())
+            // {
+                
+            // }
         }
     }
 }

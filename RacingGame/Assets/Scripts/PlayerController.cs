@@ -1,9 +1,12 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Subject
 {
+
+    private ObserverCarController observerCarController;
     private CameraController cameraController;
     [SerializeField] private float turnRadius;
     [SerializeField] private float driveAccel;
@@ -101,6 +104,21 @@ public class PlayerController : Subject
                 moves[i].UnExecute();
             }
             moves.Clear();
+        }
+
+
+       
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            if (observerCarController)
+            {
+                observerCarController.TakeDamage(11);
+            }
         }
     }
 }

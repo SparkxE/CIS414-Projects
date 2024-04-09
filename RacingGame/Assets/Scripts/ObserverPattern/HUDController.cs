@@ -8,6 +8,10 @@ public class HUDController : Observer
     private float carHealth;
     private ObserverCarController observerCarController;
 
+    private void Start() {
+        observerCarController = gameObject.GetComponent<ObserverCarController>();
+    }
+
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(25, 50, 200, 20)); 

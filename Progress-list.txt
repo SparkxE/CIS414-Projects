@@ -1,0 +1,2 @@
+04/09/2024:
+* the visitor pattern : we will make the carcontroller public and using the visitor pattern we can attach or detach the EnginBoost visitor whenever the car runs over a certain area on the road .

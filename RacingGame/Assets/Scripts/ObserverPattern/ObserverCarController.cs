@@ -16,7 +16,12 @@ public class ObserverCarController : Subject
 
     public float CarHealth
     {
-        get; private set;
+        get{
+            return carHealth;
+        } 
+        private set{
+            carHealth = value;
+        }
     }
 
 

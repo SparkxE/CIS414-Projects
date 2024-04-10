@@ -20,7 +20,7 @@ public class CameraController : Observer
     private void Update()
     {
 
-        if (!isWarpOn)
+        if (isWarpOn == true)
         {
             gameObject.transform.localPosition = initialPosition + (Random.insideUnitSphere * shakeMagnitude);
         }
@@ -35,7 +35,7 @@ public class CameraController : Observer
     {
         if (!observerCarController)
         {
-            observerCarController = observerCarController.GetComponent<ObserverCarController>();
+            observerCarController = gameObject.GetComponent<ObserverCarController>();
         }
 
 

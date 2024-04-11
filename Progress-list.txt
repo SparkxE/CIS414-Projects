@@ -1,0 +1,11 @@
+04/09/2024:
+* the visitor pattern : we will make the carcontroller public and using the visitor pattern we can attach or detach the EnginBoost visitor whenever the car runs over a certain area on the road .
+
+Aaron's Work: 
+- Singleton Pattern: setup GameData script for tracking and managing game data (track times, current level, maybe powerups?)
+
+- Decorator Pattern: setup system for attaching/detaching Projectile powerup to & from player, setup ProjectileSpawn system for when the powerup is used
+
+- Object Pooling: Pick some props to add as possible obstacles on the track, setup spawning across the track
+
+- State Pattern: Create "Start" and "Stop" States for beginning & ending track, Stop should prevent user input, Start should start the race & start allowing user input

@@ -535,12 +535,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09229594, y: 0.70105743, z: -0.09229594, w: 0.70105743}
-  m_LocalPosition: {x: -9.02, y: 5, z: -26.669998}
+  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 5.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4972856501283185769}
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -872,8 +872,8 @@ GameObject:
   - component: {fileID: 1283692158}
   - component: {fileID: 1283692159}
   - component: {fileID: 1283692161}
-  - component: {fileID: 1283692160}
   - component: {fileID: 1283692162}
+  - component: {fileID: 1283692163}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -925,18 +925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed7b1bd8ce4908408ce642ca1642d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1283692160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283692156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 222324bb5d3057248a0dadb27a36b287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1283692161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +950,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enginePowerUp: {fileID: 0}
+--- !u!114 &1283692163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283692156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e1795ddff827a4d83d7606d89f35fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1411324031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1493,6 +1493,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5568929716137242396}
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &5183583228912344383
@@ -1605,7 +1606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnRadius: 1.25
   driveAccel: 500
-  reverseAccel: 200
+  reverseAccel: 300
   crashSound: {fileID: 1859615093}
   playerTransform: {fileID: 4972856501283185769}
 --- !u!114 &5641024681252863703
@@ -1853,4 +1854,3 @@ SceneRoots:
   - {fileID: 1283692157}
   - {fileID: 4972856501283185769}
   - {fileID: 454263292}
-  - {fileID: 963194228}

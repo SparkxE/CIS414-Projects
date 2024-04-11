@@ -18,6 +18,8 @@ public class RaceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.raceStateContext = new RaceStateContext(this);
+        
         this.startState = gameObject.AddComponent<RaceStartState>();
         this.stopState = gameObject.AddComponent<RaceStopState>();
 

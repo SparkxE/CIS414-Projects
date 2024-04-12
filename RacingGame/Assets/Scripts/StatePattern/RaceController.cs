@@ -18,7 +18,7 @@ public class RaceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.raceStateContext = new RaceStateContext(this);
+        this.raceStateContext = gameObject.AddComponent<RaceStateContext>();
         
         this.startState = gameObject.AddComponent<RaceStartState>();
         this.stopState = gameObject.AddComponent<RaceStopState>();
@@ -26,9 +26,9 @@ public class RaceController : MonoBehaviour
         this.raceStateContext.Transition(stopState);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     //put anything the RaceController might need to keep track of here
+    // }
 }

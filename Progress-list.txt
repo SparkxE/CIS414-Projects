@@ -8,4 +8,4 @@ Aaron's Work:
 
 - Object Pooling: Pick some props to add as possible obstacles on the track, setup spawning across the track
 
-- State Pattern: Create "Start" and "Stop" States for beginning & ending track, Stop should prevent user input, Start should start the race & start allowing user input
+- State Pattern: Create "Start" and "Stop" States for beginning & ending track, Stop should prevent user input, Start should start the race & start allowing user input => Done!

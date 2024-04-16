@@ -874,6 +874,7 @@ GameObject:
   - component: {fileID: 1283692161}
   - component: {fileID: 1283692160}
   - component: {fileID: 1283692162}
+  - component: {fileID: 1283692163}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -961,7 +962,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08be42cf09adb54fb7cd07da3bea6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enginePowerUp: {fileID: 0}
+  enginePowerUp: {fileID: 11400000, guid: 089a30508df3bf449a69c62ac97af8fe, type: 2}
+  visitorcarController: {fileID: 0}
+--- !u!114 &1283692163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283692156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1e409ffea21764098918347755095d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1411324031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1470,7 +1484,6 @@ GameObject:
   - component: {fileID: 5568929716137242396}
   - component: {fileID: 5183583228912344383}
   - component: {fileID: 8956024462305355868}
-  - component: {fileID: 8956024462305355869}
   - component: {fileID: 8956024462305355870}
   m_Layer: 0
   m_Name: Car
@@ -1617,9 +1630,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5641024681252863699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc657d7a136794c44bc27bf52fdc85db, type: 3}
+  m_Script: {fileID: 11500000, guid: b08be42cf09adb54fb7cd07da3bea6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enginePowerUp: {fileID: 11400000, guid: 089a30508df3bf449a69c62ac97af8fe, type: 2}
+  visitorcarController: {fileID: 0}
 --- !u!1 &6185880255634798996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,18 +1821,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8956024462305355869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459210443994789993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1e409ffea21764098918347755095d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8956024462305355870
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class PlayerController : Subject
     // private ObserverCarController observerCarController;
     private CameraController cameraController;
     [SerializeField] private float turnRadius;
-    [SerializeField] private float driveAccel;
+    [SerializeField] public float driveAccel;
     [SerializeField] private float reverseAccel;
 
     [SerializeField] private Factory crashSound;

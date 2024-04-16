@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class VisitorCarController : MonoBehaviour
 {
-    private List<ICarElement> CarElements = new List<ICarElement>();
+    private List<ICarElement> carElements = new List<ICarElement>();
     void Start()
     {
-        CarElements.Add(gameObject.AddComponent<CarEngine>());
-        
+        carElements.Add(gameObject.AddComponent<CarEngine>());
+      
     }
 
     public void Accept(IVisitor visitor)
     {
-        foreach (ICarElement element in CarElements)
+        foreach ( ICarElement element in carElements)
         {
             element.Accept(visitor);
         }
     }
-
 }

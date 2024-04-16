@@ -9,3 +9,10 @@ Aaron's Work:
 - Object Pooling: Pick some props to add as possible obstacles on the track, setup spawning across the track
 
 - State Pattern: Create "Start" and "Stop" States for beginning & ending track, Stop should prevent user input, Start should start the race & start allowing user input
+
+
+
+Ons's work :
+-visitor Pattern : - when you click on the button engine boost it will it will make the car go faster for 3 seconds and then the drive acceleration will go back to the normal value 500.0f , and if you press multiple times on the button it will disappear because you are not allowed to have a lot of boosts at the same time , so i set a time = 6 seconds between each boost
+
+-Observer Patter : setup a system to watch when the car hits any obstacle , the camera shakes 

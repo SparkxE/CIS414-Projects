@@ -6,15 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnginePowerUp", menuName = "Engine PowerUp")]
 public class PowerUp : ScriptableObject, IVisitor
 {
-  //  public float defaultSpeed;
+ 
     public PlayerController playerController;
     public float boost=400.0f;
     public float duration = 3.0f;
     public void Start()
     {
         playerController = FindAnyObjectByType<PlayerController>();
-      // defaultSpeed = playerController.driveAccel;
-
+     
     }
     public void Visit(CarEngine carEngine)
     {

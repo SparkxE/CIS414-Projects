@@ -875,6 +875,7 @@ GameObject:
   - component: {fileID: 1283692160}
   - component: {fileID: 1283692162}
   - component: {fileID: 1283692163}
+  - component: {fileID: 1283692164}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -974,6 +975,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd1e409ffea21764098918347755095d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1283692164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283692156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1cc4d7226b3074d9872a08f3c7e402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1411324031
@@ -1549,6 +1562,7 @@ GameObject:
   - component: {fileID: 5641024681252863701}
   - component: {fileID: 5641024681252863700}
   - component: {fileID: 5641024681252863703}
+  - component: {fileID: 5641024681252863704}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1635,6 +1649,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enginePowerUp: {fileID: 11400000, guid: 089a30508df3bf449a69c62ac97af8fe, type: 2}
   visitorcarController: {fileID: 0}
+--- !u!114 &5641024681252863704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641024681252863699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d688a2d5f75a6439ee4cbdb8420f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponConfig: {fileID: 11400000, guid: 6313342927b63d349a8f5ff050b09e21, type: 2}
+  mainAttachment: {fileID: 11400000, guid: 806c73692a0d34f46b4fcef6a2dfaf50, type: 2}
+  secondAttachment: {fileID: 11400000, guid: df817ca80430368418fb8204038eada3, type: 2}
 --- !u!1 &6185880255634798996
 GameObject:
   m_ObjectHideFlags: 0

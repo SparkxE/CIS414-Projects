@@ -16,3 +16,7 @@ Ons's work :
 -visitor Pattern : - when you click on the button engine boost it will it will make the car go faster for 3 seconds and then the drive acceleration will go back to the normal value 500.0f , and if you press multiple times on the button it will disappear because you are not allowed to have a lot of boosts at the same time , so i set a time = 6 seconds between each boost
 
 -Observer Patter : setup a system to watch when the car hits any obstacle , the camera shakes 
+
+- Decorator Pattern: to decorate the car with a weapon that shoots the obstacles
+
+-Singleton Pattern : I have created a Controller that makes sure that when you don't reach the end of the map/track before the timer ends  you will be taken to an other scene 

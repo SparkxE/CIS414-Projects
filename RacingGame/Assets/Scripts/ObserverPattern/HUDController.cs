@@ -10,6 +10,7 @@ public class HUDController : Observer
 
     private void Start() {
         observerCarController = gameObject.GetComponent<ObserverCarController>();
+        carHealth = observerCarController.CarHealth;
     }
 
     private void OnGUI()
@@ -17,19 +18,11 @@ public class HUDController : Observer
         GUILayout.BeginArea(new Rect(25, 50, 200, 20)); 
 
         GUILayout.BeginHorizontal("Box");
-        GUILayout.Label("Car Health: " + observerCarController.CarHealth);
+        GUILayout.Label("Car Health: " + carHealth);
         GUILayout.EndHorizontal();
 
 
-        if (isWarpOn)
-        {
-
-
-            GUILayout.BeginHorizontal("Box");
-            GUILayout.Label("Wrap speed activated ");
-            GUILayout.EndHorizontal();
-        }
-
+  
      
 
         GUILayout.EndArea();

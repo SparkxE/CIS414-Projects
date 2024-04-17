@@ -488,7 +488,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -570,18 +569,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4972856501283185769}
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 175d3d55c28f82b4f8065840d3760f8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &976119217
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +886,6 @@ GameObject:
   - component: {fileID: 1283692157}
   - component: {fileID: 1283692158}
   - component: {fileID: 1283692159}
-  - component: {fileID: 1283692161}
   - component: {fileID: 1283692162}
   - component: {fileID: 1283692163}
   m_Layer: 0
@@ -955,18 +941,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ed7b1bd8ce4908408ce642ca1642d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1283692161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283692156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3608626c8e5b5774e83ec4ec5ffba836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1283692162
@@ -1217,6 +1191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crashPrefab: {fileID: -8630288321610467077, guid: c0c41bc0dffe39e49a21ba527e4949cd, type: 3}
+  playerSubject: {fileID: 5641024681252863702}
 --- !u!4 &2008183979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7595406466165016645, guid: 95fa7fc8bfed17d498b877fadc1697fc, type: 3}
@@ -1503,7 +1478,6 @@ GameObject:
   - component: {fileID: 5183583228912344383}
   - component: {fileID: 8956024462305355868}
   - component: {fileID: 8956024462305355869}
-  - component: {fileID: 8956024462305355870}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -1568,10 +1542,9 @@ GameObject:
   - component: {fileID: 5641024681252863702}
   - component: {fileID: 5641024681252863701}
   - component: {fileID: 5641024681252863700}
-  - component: {fileID: 5641024681252863703}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1639,20 +1612,6 @@ MonoBehaviour:
   turnRadius: 0.75
   driveAccel: 1250
   reverseAccel: 500
-  crashSound: {fileID: 1859615093}
-  playerTransform: {fileID: 4972856501283185769}
---- !u!114 &5641024681252863703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5641024681252863699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc657d7a136794c44bc27bf52fdc85db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6185880255634798996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,18 +1808,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd1e409ffea21764098918347755095d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8956024462305355870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459210443994789993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc657d7a136794c44bc27bf52fdc85db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &9131005546854678755

@@ -6,9 +6,11 @@ Aaron's Work:
 
 - Decorator Pattern: setup system for attaching/detaching Projectile powerup to & from player, setup ProjectileSpawn system for when the powerup is used
 
-- Object Pooling: Pick some props to add as possible obstacles on the track, setup spawning across the track
+- Object Pooling: Pick some props to add as possible obstacles on the track, setup spawning across the track 
 
-- State Pattern: Create "Start" and "Stop" States for beginning & ending track, Stop should prevent user input, Start should start the race & start allowing user input
+- State Pattern: Create "Start" and "Stop" States for beginning & ending track, Stop should prevent user input, Start should start the race & start allowing user input => Done!
+
+- Observer Pattern: rework to be more compatible with main premise of Observer Pattern (decoupling scripts from each other) => Done!
 
 
 
@@ -19,4 +21,5 @@ Ons's work :
 
 - Decorator Pattern: to decorate the car with a weapon that shoots the obstacles
 
--Singleton Pattern : I have created a Controller that makes sure that when you don't reach the end of the map/track before the timer ends  you will be taken to an other scene 
+-Singleton Pattern : I have created a Controller that makes sure that when you don't reach the end of the map/track before the timer ends  you will be taken to an other scene  => Done!
+

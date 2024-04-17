@@ -5,52 +5,10 @@ using UnityEngine;
 
 public class PlayerController : Subject
 {
-
-    // private ObserverCarController observerCarController;
-    private CameraController cameraController;
     [SerializeField] private float turnRadius;
     [SerializeField] public float driveAccel;
     [SerializeField] private float reverseAccel;
 
-    [SerializeField] private Factory crashSound;
-    public bool IsWarpOn
-    {
-        get; private set;
-    }
-
-    private void Awake()
-    {    // we may have to change it later 
-        
-        cameraController = FindObjectOfType<CameraController>();
-
-        // gameObject.AddComponent<CameraController>;//we might have to find the camera and then find it 
-    }
-
-    private void OnEnable()
-    {
-      
-        if (cameraController)
-        {
-
-            Attach(cameraController);
-        }
-
-
-    }
-    private void OnDisable()
-    {
-       
-
-        if (cameraController)
-        {
-
-            Detach(cameraController);
-        }
-
-
-    }
-
-    [SerializeField] private Transform playerTransform;
     private List<IMove> moves = new List<IMove>();
 
     //FixedUpdate allows consistent updates regardless of user's frame rate
@@ -107,23 +65,13 @@ public class PlayerController : Subject
             }
             moves.Clear();
         }
-
-
-       
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(!collision.gameObject.name.Contains("TARMAC")){
-            crashSound.GetEffect(transform.position);
-        }
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            gameObject.GetComponent<ObserverCarController>().TakeDamage(11);
-            // if (gameObject.GetComponent<ObserverCarController>())
-            // {
-                
-            // }
+        if(!collision.gameObject.name.Contains("TARMAC") || collision.gameObject.CompareTag("Obstacle")){
+            //notify CrashEffectFactory & damage management code of collision with Obstacle
+            NotifyObservers();
         }
     }
 }

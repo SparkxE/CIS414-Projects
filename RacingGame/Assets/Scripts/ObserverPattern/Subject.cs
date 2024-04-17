@@ -3,23 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Subject : MonoBehaviour
+public abstract class Subject : MonoBehaviour
 {
-    List<Observer> observers = new List<Observer>();
+    //collection of observers
+    List<IObserver> observers = new List<IObserver>();
 
-    public void Attach(Observer anObserver)
-    {
-        observers.Add(anObserver);
+    //add the observer to the subject's collection
+    public void AddObserver(IObserver observer){
+        observers.Add(observer);
     }
-    public void Detach(Observer anObserver)
-    {
-        observers.Remove(anObserver);
+
+    //remove the observer from the subject's collection
+    public void RemoveObserver(IObserver observer){
+        observers.Remove(observer);
     }
-    public void NotifyObservers()
-    {
-        foreach (Observer observer in observers)
-        {
-            observer.Notify(this);
+
+    //notify each observer that an event has occurred
+    protected void NotifyObservers(){
+        foreach(IObserver observer in observers){
+            observer.OnNotify();
         }
     }
 }

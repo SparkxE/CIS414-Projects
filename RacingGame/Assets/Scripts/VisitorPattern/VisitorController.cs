@@ -24,10 +24,10 @@ public class VisitorController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision detected");
-        if (collision.gameObject.CompareTag("BoostArea"))
+        if (other.gameObject.CompareTag("BoostArea"))
         {
             Debug.Log("BoostArea detected");
             // Apply the boost effect
@@ -37,22 +37,5 @@ public class VisitorController : MonoBehaviour
             isBoostOnCooldown = true;
             lastBoostTime = Time.time;
         }
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.BeginArea(new Rect(25, 0, 200, 20));
-
-      
-        if (!isBoostOnCooldown && GUILayout.Button("PowerUp Engine"))
-        {
-    
-            visitorcarController.Accept(enginePowerUp);
-
-            isBoostOnCooldown = true;
-            lastBoostTime = Time.time;
-        }
-
-        GUILayout.EndArea();
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : Subject
 {
     [SerializeField] private float turnRadius;
-    [SerializeField] private float driveAccel;
+    [SerializeField] public float driveAccel;
     [SerializeField] private float reverseAccel;
 
     private List<IMove> moves = new List<IMove>();
@@ -69,7 +69,7 @@ public class PlayerController : Subject
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(!collision.gameObject.name.Contains("TARMAC") || collision.gameObject.CompareTag("Obstacle")){
+        if(collision.gameObject.CompareTag("Obstacle")){
             //notify CrashEffectFactory & damage management code of collision with Obstacle
             NotifyObservers();
         }

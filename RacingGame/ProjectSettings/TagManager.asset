@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - BoostArea
+  - WeaponPickup
   layers:
   - Default
   - TransparentFX

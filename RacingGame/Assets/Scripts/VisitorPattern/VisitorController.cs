@@ -5,25 +5,37 @@ using UnityEngine;
 public class VisitorController : MonoBehaviour
 {
     public PowerUp enginePowerUp;
+    public VisitorCarController visitorcarController;
 
-    private VisitorCarController visitorCarController;
+    private bool isBoostOnCooldown = false;
+    private float boostCooldownDuration = 6.0f;
+    private float lastBoostTime = 0.0f;
 
-
-    void Start()
+    public void Start()
     {
-        visitorCarController = gameObject.AddComponent<VisitorCarController>();
+        visitorcarController = FindAnyObjectByType<VisitorCarController>();
     }
 
-    private void OnGUI()
+    private void Update()
     {
-        GUILayout.BeginArea(new Rect(25, 0, 200, 20));
-
-        if (GUILayout.Button("PowerUp Engine"))
+        if (isBoostOnCooldown && Time.time - lastBoostTime >= boostCooldownDuration)
         {
-            visitorCarController.Accept(enginePowerUp);
+            isBoostOnCooldown = false;
         }
+    }
 
-        GUILayout.EndArea();
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision detected");
+        if (other.gameObject.CompareTag("BoostArea"))
+        {
+            Debug.Log("BoostArea detected");
+            // Apply the boost effect
+            visitorcarController.Accept(enginePowerUp);
 
+            // Set the boost on cooldown
+            isBoostOnCooldown = true;
+            lastBoostTime = Time.time;
+        }
     }
 }

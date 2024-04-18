@@ -3,22 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "PowerUp", menuName = "PowerUp")]
-public class PowerUp : ScriptableObject,IVisitor
+[CreateAssetMenu(fileName = "EnginePowerUp", menuName = "Engine PowerUp")]
+public class PowerUp : ScriptableObject, IVisitor
 {
-
-    public string powerupName;
-    public string powerUpDescription;
-    public GameObject powerUpPrefab;
  
-
-    [Tooltip("Increese Engine Speed")]
-    [Range(0.0f, 10.0f)]
-    public float boostEngine;
-
-
+    public PlayerController playerController;
+    public float boost=400.0f;
+    public float duration = 3.0f;
+    public void Start()
+    {
+        playerController = FindAnyObjectByType<PlayerController>();
+     
+    }
     public void Visit(CarEngine carEngine)
     {
-        float aboost = carEngine.boost += boostEngine;
+
+        playerController = FindAnyObjectByType<PlayerController>();
+        playerController.driveAccel += boost;
+        Debug.Log(" car engine is being boosted " + playerController.driveAccel);
+        carEngine.StartCoroutine(DecreaseSpeedAfterDelay(carEngine));
+
+
+    }
+
+
+    private IEnumerator DecreaseSpeedAfterDelay(CarEngine carEngine)
+    {
+       
+        yield return new WaitForSeconds(duration);
+
+       
+        playerController.driveAccel -= boost;
+        Debug.Log("Speed boost duration ended. Default speed restored: " + playerController.driveAccel);
     }
 }

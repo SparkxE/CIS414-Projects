@@ -31,4 +31,7 @@ public class CrashEffectFactory : Factory, IObserver
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GetEffect(player.transform.position);
     }
+
+
+
 }

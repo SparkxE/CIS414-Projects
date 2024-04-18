@@ -15,11 +15,19 @@ public class RaceClient : MonoBehaviour
 
     void OnGUI() {
         //GUI Layout information goes here
-        if(GUILayout.Button("Start Race")){
+
+
+        GUILayout.BeginArea(new Rect(25, 25, 200, 20));
+        if (GUILayout.Button("Start Race")){
             raceController.StartRace();
         }
-        if(GUILayout.Button("Stop Race")){
+        GUILayout.EndArea();
+
+        GUILayout.BeginArea(new Rect(25, 50, 200, 20));
+        if (GUILayout.Button("Stop Race")){
             raceController.StopRace();
         }
+
+        GUILayout.EndArea();
     }
 }

@@ -888,7 +888,6 @@ GameObject:
   - component: {fileID: 1283692159}
   - component: {fileID: 1283692162}
   - component: {fileID: 1283692163}
-  - component: {fileID: 1283692163}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -956,7 +955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08be42cf09adb54fb7cd07da3bea6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enginePowerUp: {fileID: 0}
+  enginePowerUp: {fileID: 11400000, guid: 089a30508df3bf449a69c62ac97af8fe, type: 2}
+  visitorcarController: {fileID: 0}
 --- !u!114 &1283692163
 MonoBehaviour:
   m_ObjectHideFlags: 0

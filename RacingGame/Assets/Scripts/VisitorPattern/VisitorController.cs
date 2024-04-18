@@ -18,10 +18,24 @@ public class VisitorController : MonoBehaviour
 
     private void Update()
     {
-       
         if (isBoostOnCooldown && Time.time - lastBoostTime >= boostCooldownDuration)
         {
             isBoostOnCooldown = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision detected");
+        if (collision.gameObject.CompareTag("BoostArea"))
+        {
+            Debug.Log("BoostArea detected");
+            // Apply the boost effect
+            visitorcarController.Accept(enginePowerUp);
+
+            // Set the boost on cooldown
+            isBoostOnCooldown = true;
+            lastBoostTime = Time.time;
         }
     }
 

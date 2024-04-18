@@ -14,7 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0530cda7665e08b409811e9fe477be75, type: 2}
     - target: {fileID: 5990654836522625317, guid: 68b9cdf2eb758e547bcf47d661c63882, type: 3}
       propertyPath: m_Name
-      value: prop_distance_2 Variant
+      value: SignPink
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990654836522625317, guid: 68b9cdf2eb758e547bcf47d661c63882, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 6370557700716655519, guid: 68b9cdf2eb758e547bcf47d661c63882, type: 3}
       propertyPath: m_LocalPosition.x

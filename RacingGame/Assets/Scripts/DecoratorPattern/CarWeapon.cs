@@ -7,6 +7,7 @@ public class CarWeapon : MonoBehaviour
     public WeaponConfig weaponConfig;
     // here is where you would add in multiple attachments, in this case we have only 2
     public WeaponAttachment mainAttachment;
+    public string equipMessage = "";
    
 
     private IWeapon weapon;
@@ -21,9 +22,13 @@ public class CarWeapon : MonoBehaviour
     void OnGUI()
     {
         GUI.color = Color.red;
+        GUI.Label(new Rect(750, 70, 200, 100), equipMessage);
         if (isDecorated == true)
         {
-            GUI.Label(new Rect(750, 70, 200, 100), "Weapon Equipped! Ready to Fire!");
+            equipMessage = "Weapon Equipped! Ready to Fire!";
+        }
+        else{
+            equipMessage = "";
         }
     }
 
@@ -32,6 +37,7 @@ public class CarWeapon : MonoBehaviour
     {
         weapon = new Weapon(weaponConfig);
         Debug.Log("weapon is detached ");
+        isDecorated = false;
     }
 
     public void Decorate()
@@ -42,6 +48,6 @@ public class CarWeapon : MonoBehaviour
             weapon = new WeaponDecorator(weapon, mainAttachment);
         }
        
-        isDecorated = !isDecorated;
+        isDecorated = true;
     }
 }

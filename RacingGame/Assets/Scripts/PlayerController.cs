@@ -69,7 +69,7 @@ public class PlayerController : Subject
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(!collision.gameObject.name.Contains("TARMAC") || collision.gameObject.CompareTag("Obstacle")){
+        if(collision.gameObject.CompareTag("Obstacle")){
             //notify CrashEffectFactory & damage management code of collision with Obstacle
             NotifyObservers();
         }

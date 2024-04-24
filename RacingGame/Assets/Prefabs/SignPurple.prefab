@@ -50,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5421341676512682061, guid: f7bbaa5309bc8ce4286d16447db54563, type: 3}
       propertyPath: m_Name
-      value: prop_distance_3 Variant
+      value: SignPurple
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421341676512682061, guid: f7bbaa5309bc8ce4286d16447db54563, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5781643322709803416, guid: f7bbaa5309bc8ce4286d16447db54563, type: 3}
       propertyPath: m_Materials.Array.data[0]

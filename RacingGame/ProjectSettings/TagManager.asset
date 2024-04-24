@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Obstacle
   - BoostArea
+
+  - EndPoint
+
   - WeaponPickup
+
   layers:
   - Default
   - TransparentFX

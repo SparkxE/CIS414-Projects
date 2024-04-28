@@ -12,30 +12,36 @@ public class LevelContoller : Singleton<LevelContoller>,IObserver
     private bool endTimeReached = false;
     private DateTime sessionStartTime;
     private DateTime sessionEndTime;
-    [SerializeField] private float timeRemaining = 120; // Change to 1 minute
-    [SerializeField] public TextMeshProUGUI textMeshPro;
+    [SerializeField] private float timeRemaining = 120; 
+    [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private Subject endPoint;
+    [SerializeField]  private Subject health;
+ 
     public void OnNotify()
     {
         SetEndLineReachedAndSwitch();
-     
     }
 
     void OnSceneLoad(Scene scene, LoadSceneMode mode) {
         endPoint = FindObjectOfType<EndPointReached>();
         endPoint.AddObserver(this);
+        health = FindObjectOfType<Health>();
+        health.AddObserver(this);
 
     }
     private void OnEnable()
     {
         endPoint.AddObserver(this);
         SceneManager.sceneLoaded += OnSceneLoad;
+        health.AddObserver(this);
+
     }
 
     private void OnDisable()
     {
         endPoint.RemoveObserver(this);
         SceneManager.sceneLoaded -= OnSceneLoad;
+        health.RemoveObserver(this);
 
     }
     public void Start()

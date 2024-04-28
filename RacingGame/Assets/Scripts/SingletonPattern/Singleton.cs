@@ -30,11 +30,11 @@ public class Singleton<T> : MonoBehaviour where T : Component
         if (instance == null)
         {
             instance = this as T;
-            DontDestroyOnLoad(gameObject); //dont destroy the variable when you go to the next scene
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject); //when a second instance is created it will be destroyed
+            Destroy(gameObject);
         }
     }
 }

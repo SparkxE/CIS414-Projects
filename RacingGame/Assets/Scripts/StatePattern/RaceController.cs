@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
-public class RaceController : MonoBehaviour
+public class RaceController : MonoBehaviour 
 {
-    private IRaceState startState, stopState; 
+    private IRaceState startState, stopState, endState;
     private RaceStateContext raceStateContext;
+   
 
     public void StartRace(){
         this.raceStateContext.Transition(this.startState);
@@ -22,13 +27,14 @@ public class RaceController : MonoBehaviour
         
         this.startState = gameObject.AddComponent<RaceStartState>();
         this.stopState = gameObject.AddComponent<RaceStopState>();
+        this.endState = gameObject.AddComponent<RaceEndState>();
 
         this.raceStateContext.Transition(stopState);
-    }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     //put anything the RaceController might need to keep track of here
-    // }
+
+    }
+   
+   
+
+
 }

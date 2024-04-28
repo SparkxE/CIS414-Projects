@@ -8,6 +8,11 @@ public class ObstaclePool : MonoBehaviour
     [SerializeField] private int maxPoolSize = 10;
     [SerializeField] private int stackDefaultCapacity = 10;
     [SerializeField] private GameObject[] obstaclePrefabs;
+    [SerializeField] private int obstacleMaxX;
+    [SerializeField] private int obstacleMinX;
+    [SerializeField] private int obstacleMaxZ;
+    [SerializeField] private int obstacleMinZ;
+    [SerializeField] private float obstacleDropHeight;
 
     private IObjectPool<Obstacle> _pool;
     public IObjectPool<Obstacle> Pool{
@@ -31,7 +36,7 @@ public class ObstaclePool : MonoBehaviour
 
     private Obstacle CreatePooledItem()
     {
-        GameObject go = GameObject.Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length-1)]);
+        GameObject go = GameObject.Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)]);
         Obstacle obstacle = go.AddComponent<Obstacle>();
         obstacle.Pool = Pool;
 
@@ -56,7 +61,7 @@ public class ObstaclePool : MonoBehaviour
     public void SpawnObstacles(){
         for(int i = 0; i < stackDefaultCapacity; i++){
             var obstacle = Pool.Get();
-            obstacle.transform.position = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+            obstacle.transform.position = new Vector3(Random.Range(obstacleMinX, obstacleMaxX), obstacleDropHeight, Random.Range(obstacleMinZ, obstacleMaxZ));
         }
     }
 }

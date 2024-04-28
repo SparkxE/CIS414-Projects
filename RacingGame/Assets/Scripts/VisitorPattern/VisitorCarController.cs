@@ -8,7 +8,6 @@ public class VisitorCarController : MonoBehaviour
     void Start()
     {
         carElements.Add(gameObject.AddComponent<CarEngine>());
-      
     }
 
     public void Accept(IVisitor visitor)

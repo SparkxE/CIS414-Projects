@@ -43,11 +43,10 @@ public class CarWeapon : MonoBehaviour
     public void Decorate()
     {
 
-        if (mainAttachment )
+        if (mainAttachment)
         {
             weapon = new WeaponDecorator(weapon, mainAttachment);
+            isDecorated = true;
         }
-       
-        isDecorated = true;
     }
 }

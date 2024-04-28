@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndPointReached : Subject
 {
-    LevelContoller levelContoller;
+    
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger entered!");
@@ -14,7 +14,7 @@ public class EndPointReached : Subject
             Debug.Log("End point reached!");
 
 
-            levelContoller.SetEndLineReachedAndSwitch();
+          NotifyObservers();
 
             Debug.Log("You have reached the end of the current level ");
         }

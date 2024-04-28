@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelContoller : Singleton<LevelContoller>
+public class LevelContoller : Singleton<LevelContoller>,IObserver
 {
     private bool endLineReached = false;
     private bool endTimeReached = false;
@@ -14,8 +14,30 @@ public class LevelContoller : Singleton<LevelContoller>
     private DateTime sessionEndTime;
     [SerializeField] private float timeRemaining = 120; // Change to 1 minute
     [SerializeField] public TextMeshProUGUI textMeshPro;
+    [SerializeField] private Subject endPoint;
+    public void OnNotify()
+    {
+        SetEndLineReachedAndSwitch();
+     
+    }
 
+    void OnSceneLoad(Scene scene, LoadSceneMode mode) {
+        endPoint = FindObjectOfType<EndPointReached>();
+        endPoint.AddObserver(this);
 
+    }
+    private void OnEnable()
+    {
+        endPoint.AddObserver(this);
+        SceneManager.sceneLoaded += OnSceneLoad;
+    }
+
+    private void OnDisable()
+    {
+        endPoint.RemoveObserver(this);
+        SceneManager.sceneLoaded -= OnSceneLoad;
+
+    }
     public void Start()
     {
         textMeshPro = FindAnyObjectByType<TextMeshProUGUI>();
@@ -28,8 +50,6 @@ public class LevelContoller : Singleton<LevelContoller>
     private void Update()
     {
        
-
-
         if (timeRemaining > 0)
         {
 
@@ -41,8 +61,6 @@ public class LevelContoller : Singleton<LevelContoller>
         {
             Debug.Log("Time has run out!");
             SetEndTimeReachedAndSwitch();
-
-
         }
     }
 
@@ -103,8 +121,8 @@ public class LevelContoller : Singleton<LevelContoller>
         {
             nextSceneIndex = 0;
         }
-
-        LoadNextScene();
+        Invoke("LoadNextScene", 3f);
+     
         this.textMeshPro.text = "Time ended";
 
         Debug.Log("You have been taken to the next level");

@@ -1279,7 +1279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerController: {fileID: 5641024681252863702}
-  carBody: {fileID: 0}
   car: {fileID: 4459210443994789993}
 --- !u!1001 &1254728660
 PrefabInstance:
@@ -2144,9 +2143,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 976972995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 431, y: -91}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1999050552
@@ -2532,11 +2531,8 @@ GameObject:
   - component: {fileID: 5183583228912344383}
   - component: {fileID: 8956024462305355868}
   - component: {fileID: 8956024462305355869}
-
   - component: {fileID: 8956024462305355870}
   - component: {fileID: 8956024462305355871}
-
-36186024d5262e8a43b6950e2fd4526aea0f88b
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -2914,7 +2910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1e409ffea21764098918347755095d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
 --- !u!114 &8956024462305355870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,8 +2945,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1.5, z: 5.1}
   m_Center: {x: 0, y: 0.75, z: 0}
-
- f36186024d5262e8a43b6950e2fd4526aea0f88b
 --- !u!4 &9131005546854678755
 Transform:
   m_ObjectHideFlags: 0

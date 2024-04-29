@@ -11,7 +11,6 @@ public class Health : Subject, IObserver
     
     [SerializeField] private float health=100f;
     [SerializeField] private Subject playerController;
-    [SerializeField] private Rigidbody carBody;
     [SerializeField] private GameObject car;
 
 
@@ -37,7 +36,9 @@ public class Health : Subject, IObserver
         {
 
             Vector3 carGround = gameObject.transform.position - new Vector3(0, 0.25f, 0);
-            car.AddComponent<Rigidbody>();
+            if(car.GetComponent<Rigidbody>() == null){
+                car.AddComponent<Rigidbody>();
+            }
             Rigidbody carBody = car.GetComponent<Rigidbody>();
             carBody.AddExplosionForce(10, carGround, 2);
 

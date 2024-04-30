@@ -5,7 +5,7 @@ using UnityEngine;
 public class VisitorController : MonoBehaviour
 {
     public PowerUp enginePowerUp;
-    public VisitorCarController visitorcarController;
+    private VisitorCarController visitorcarController;
 
     private bool isBoostOnCooldown = false;
     private float boostCooldownDuration = 6.0f;
@@ -13,7 +13,7 @@ public class VisitorController : MonoBehaviour
 
     public void Start()
     {
-        visitorcarController = FindAnyObjectByType<VisitorCarController>();
+        visitorcarController = FindObjectOfType<VisitorCarController>();
     }
 
     private void Update()

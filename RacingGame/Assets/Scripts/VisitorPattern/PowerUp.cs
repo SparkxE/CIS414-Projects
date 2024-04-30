@@ -12,13 +12,13 @@ public class PowerUp : ScriptableObject, IVisitor
     public float duration = 3.0f;
     public void Start()
     {
-        playerController = FindAnyObjectByType<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
      
     }
     public void Visit(CarEngine carEngine)
     {
 
-        playerController = FindAnyObjectByType<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
         playerController.driveAccel += boost;
         Debug.Log(" car engine is being boosted " + playerController.driveAccel);
         carEngine.StartCoroutine(DecreaseSpeedAfterDelay(carEngine));

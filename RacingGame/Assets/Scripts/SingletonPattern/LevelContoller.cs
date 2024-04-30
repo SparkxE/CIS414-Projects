@@ -78,7 +78,7 @@ public class LevelContoller : Singleton<LevelContoller>,IObserver
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
 
 
-        textMeshPro.text = String.Format("Remaining Time : {0:00}:{1:00}", minutes, seconds);
+        textMeshPro.text = String.Format("{0:00}:{1:00}", minutes, seconds);
     
     }
     private void OnApplicationQuit()
@@ -91,7 +91,7 @@ public class LevelContoller : Singleton<LevelContoller>,IObserver
     }
 
 
-    private void LoadNextScene()
+    public void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;

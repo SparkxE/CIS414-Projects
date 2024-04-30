@@ -5,29 +5,48 @@ using System.Net;
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Health : Subject, IObserver
 {
     
-    [SerializeField] private float health=100f;
+    public float health=100f;
     [SerializeField] private Subject playerController;
+    [SerializeField] private LevelContoller levelContoller;
     [SerializeField] private GameObject car;
+    [SerializeField] Image healthBarFill;
 
 
+
+    public void Start()
+    {
+        levelContoller = FindObjectOfType<LevelContoller>();
+    }
     private void OnEnable()
     {
         playerController.AddObserver(this);
+    
     }
 
     private void OnDisable()
     {
         playerController.RemoveObserver(this);
-    
+     
 
     }
-    public void OnNotify() {
-        health -= 10;
+    private void UpdateHealthBar()
+    {
+        healthBarFill.fillAmount = health / 50;
+    }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
         Debug.Log("your health is " + health);
+        UpdateHealthBar(); 
+    }
+    public void OnNotify() {
+        TakeDamage(10);
+       
         if (health > 0)
         {
             Debug.Log("Keep playing");
@@ -41,7 +60,7 @@ public class Health : Subject, IObserver
             }
             Rigidbody carBody = car.GetComponent<Rigidbody>();
             carBody.AddExplosionForce(10, carGround, 2);
-
+            levelContoller.LoadNextScene();
         }
     }
    

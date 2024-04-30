@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletVelocity : MonoBehaviour
+public class BulletVelocity : Missile
 {
     public float speed = 13f;
     private Rigidbody rb;
@@ -16,13 +16,5 @@ public class BulletVelocity : MonoBehaviour
 
     void Update(){
         rb.AddForce(transform.up * speed);
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        Debug.Log("contact with " + other.gameObject.name);
-        if(other.gameObject.tag == "Obstacle"){
-            Destroy(other.gameObject);
-        }
-        Destroy(gameObject);
     }
 }

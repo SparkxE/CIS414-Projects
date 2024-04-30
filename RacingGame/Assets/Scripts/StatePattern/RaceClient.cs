@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceClient : MonoBehaviour
+public class RaceClient : Subject
 {
     private RaceController raceController;
+    private bool raceStarted = false;
    
 
     // Start is called before the first frame update
@@ -14,21 +15,12 @@ public class RaceClient : MonoBehaviour
         this.raceController = (RaceController)FindObjectOfType(typeof(RaceController));
     }
 
-    void OnGUI() {
-        //GUI Layout information goes here
-
-
-        GUILayout.BeginArea(new Rect(25, 25, 200, 20));
-        if (GUILayout.Button("Start Race")){
+    void Update(){
+        if(Input.GetKey(KeyCode.Tab) && raceStarted == false){
             raceController.StartRace();
+            raceStarted = true;
+            Debug.Log("oof");
+            NotifyObservers();
         }
-        GUILayout.EndArea();
-
-        GUILayout.BeginArea(new Rect(25, 50, 200, 20));
-        if (GUILayout.Button("Stop Race")){
-            raceController.StopRace();
-        }
-
-        GUILayout.EndArea();
     }
 }

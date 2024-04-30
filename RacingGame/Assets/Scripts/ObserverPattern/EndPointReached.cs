@@ -14,7 +14,7 @@ public class EndPointReached : Subject
             Debug.Log("End point reached!");
 
 
-          NotifyObservers();
+            NotifyObservers();
 
             Debug.Log("You have reached the end of the current level ");
         }

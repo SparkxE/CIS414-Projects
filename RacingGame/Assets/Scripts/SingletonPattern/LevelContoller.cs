@@ -23,6 +23,7 @@ public class LevelContoller : Singleton<LevelContoller>,IObserver
     {
         Debug.Log(raceStarted);
         if(raceStarted == true){
+            raceStarted = false;
             SetEndLineReachedAndSwitch();
         }
         else{

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceClient : Subject
+public class RaceClient : Subject, IObserver
 {
     private RaceController raceController;
     private bool raceStarted = false;
+    private Subject endPoint;
    
 
     // Start is called before the first frame update
@@ -13,6 +14,8 @@ public class RaceClient : Subject
     {
         gameObject.AddComponent<RaceController>();
         this.raceController = (RaceController)FindObjectOfType(typeof(RaceController));
+        endPoint = FindObjectOfType<EndPointReached>();
+        endPoint.AddObserver(this);
     }
 
     void Update(){
@@ -22,5 +25,9 @@ public class RaceClient : Subject
             Debug.Log("oof");
             NotifyObservers();
         }
+    }
+
+    public void OnNotify(){
+        raceController.StopRace();
     }
 }

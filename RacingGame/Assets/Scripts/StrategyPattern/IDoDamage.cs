@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDoDamage
 {
-    void DoDamage(int damage, Collider collider);
+    void DoDamage(int damage, Collision collider);
 }

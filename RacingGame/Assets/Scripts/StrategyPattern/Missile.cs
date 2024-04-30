@@ -9,7 +9,7 @@ public class Missile : WeaponBase
         damageType = new Breaker();
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnCollisionEnter(Collision other) {
         damageType.DoDamage(damage, other);
         Destroy(gameObject);
     }

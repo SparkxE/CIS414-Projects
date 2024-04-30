@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Breaker : IDoDamage
 {
-    public void DoDamage(int damage, Collider other){
+    public void DoDamage(int damage, Collision other){
         if(other.gameObject.tag == "Obstacle"){
             GameObject.Destroy(other.gameObject);
         }

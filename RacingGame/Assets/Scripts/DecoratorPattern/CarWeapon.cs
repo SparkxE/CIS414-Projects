@@ -38,7 +38,8 @@ public class CarWeapon : MonoBehaviour
     public void Reset()
     {
         weapon = new Weapon(weaponConfig);
-        Instantiate(weaponPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+        weaponPrefab.GetComponent<BulletVelocity>().speed = gameObject.GetComponent<Rigidbody>().velocity.magnitude;
+        Instantiate(weaponPrefab, bulletSpawnPoint.transform.position + (transform.forward.normalized * 5), bulletSpawnPoint.transform.rotation);
         Debug.Log("weapon is detached ");
         isDecorated = false;
     }
@@ -51,6 +52,7 @@ public class CarWeapon : MonoBehaviour
             weapon = new WeaponDecorator(weapon, mainAttachment);
             isDecorated = true;
             weaponPrefab = mainAttachment.prefab;
+            // weaponPrefab.GetComponent<BulletVelocity>().speed = gameObject.GetComponent<Rigidbody>().velocity.magnitude;
         }
     }
 }

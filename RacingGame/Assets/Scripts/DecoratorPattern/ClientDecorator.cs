@@ -7,6 +7,7 @@ public class ClientDecorator : MonoBehaviour
     private CarWeapon carWeapon;
     private bool isWeaponDecorated = false;
 
+
     void Start()
     {
         carWeapon = (CarWeapon)FindObjectOfType(typeof(CarWeapon));

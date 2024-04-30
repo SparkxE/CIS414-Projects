@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,7 +44,7 @@ public class LevelContoller : Singleton<LevelContoller>,IObserver
             raceClient = FindObjectOfType<RaceClient>();
             raceClient.AddObserver(this);
         }
-        
+
         laptTimeDisplay.text = String.Format("Level 1 Time: {0:00}:{1:00}", level1Time/60, level1Time%60);
         laptTimeDisplay.text += String.Format("\nLevel 2 Time: {0:00}:{1:00}", level2Time/60, level2Time%60);
         laptTimeDisplay.text += String.Format("\nLevel 3 Time: {0:00}:{1:00}", level3Time/60, level3Time%60);

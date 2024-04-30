@@ -8,6 +8,7 @@ public class WeaponAttachment : ScriptableObject, IWeapon
 {
     public string attachmentName;
     public string attachmentDescription;
+    public GameObject prefab;
 
 
     [Range(0, 100)]

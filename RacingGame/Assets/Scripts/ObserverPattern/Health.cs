@@ -12,16 +12,9 @@ public class Health : Subject, IObserver
     
     public float health=100f;
     [SerializeField] private Subject playerController;
-    [SerializeField] private LevelContoller levelContoller;
     [SerializeField] private GameObject car;
     [SerializeField] Image healthBarFill;
 
-
-
-    public void Start()
-    {
-        levelContoller = FindObjectOfType<LevelContoller>();
-    }
     private void OnEnable()
     {
         playerController.AddObserver(this);
@@ -31,8 +24,6 @@ public class Health : Subject, IObserver
     private void OnDisable()
     {
         playerController.RemoveObserver(this);
-     
-
     }
     private void UpdateHealthBar()
     {
@@ -60,7 +51,7 @@ public class Health : Subject, IObserver
             }
             Rigidbody carBody = car.GetComponent<Rigidbody>();
             carBody.AddExplosionForce(10, carGround, 2);
-            levelContoller.LoadNextScene();
+            NotifyObservers();
         }
     }
    

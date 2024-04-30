@@ -8,6 +8,8 @@ public class CarWeapon : MonoBehaviour
     // here is where you would add in multiple attachments, in this case we have only 2
     public WeaponAttachment mainAttachment;
     public string equipMessage = "";
+    private GameObject weaponPrefab;
+    [SerializeField] private GameObject bulletSpawnPoint;
    
 
     private IWeapon weapon;
@@ -36,6 +38,7 @@ public class CarWeapon : MonoBehaviour
     public void Reset()
     {
         weapon = new Weapon(weaponConfig);
+        Instantiate(weaponPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
         Debug.Log("weapon is detached ");
         isDecorated = false;
     }
@@ -47,6 +50,7 @@ public class CarWeapon : MonoBehaviour
         {
             weapon = new WeaponDecorator(weapon, mainAttachment);
             isDecorated = true;
+            weaponPrefab = mainAttachment.prefab;
         }
     }
 }

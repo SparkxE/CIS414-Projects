@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachmentName: weapon1
   attachmentDescription: 
+  prefab: {fileID: 1252869039071485945, guid: 67b5715afd12cc0488f9c2b609abc262, type: 3}
   range: 2.4
   rate: 15.8
   strength: 7.6

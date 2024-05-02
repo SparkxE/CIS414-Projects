@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelContoller : Singleton<LevelContoller>,IObserver
 {
-    private bool endLineReached = false;
-    private bool endTimeReached = false;
     [SerializeField] private float initialTime;
     private float timeRemaining; 
     [SerializeField] private TextMeshProUGUI currentTimeDisplay;
@@ -119,7 +117,6 @@ public class LevelContoller : Singleton<LevelContoller>,IObserver
     }
     public void SetEndTimeReachedAndSwitch()
     {
-        endTimeReached = true;
         currentTimeDisplay.text = "Time ended";
         LoadNextScene();
 
@@ -128,7 +125,6 @@ public class LevelContoller : Singleton<LevelContoller>,IObserver
 
     public void SetEndLineReachedAndSwitch()
     {
-        endLineReached = true;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         switch(currentSceneIndex){
             case 0: level1Time = initialTime - timeRemaining; break;
